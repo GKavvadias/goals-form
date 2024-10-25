@@ -6,16 +6,20 @@ import { PropsWithChildren } from "react";
 //   children: ReactNode;
 // };
 
-type GoalProps = PropsWithChildren<{ title: string }>;
+type GoalProps = PropsWithChildren<{
+  id: number;
+  title: string;
+  onDelete: (id: number) => void;
+}>;
 
-export default function Goal({ title, children }: GoalProps) {
+export default function Goal({ title, id, children, onDelete }: GoalProps) {
   return (
     <article>
       <div>
         <h2>{title}</h2>
         {children}
       </div>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 }
