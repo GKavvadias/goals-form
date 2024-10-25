@@ -1,14 +1,19 @@
-type GoalProps = {
-  title: string;
-  description: string;
-};
+import { PropsWithChildren } from "react";
 
-export default function Goal({ title, description }: GoalProps) {
+// type GoalProps = {
+//   title: string;
+//   // description: string;
+//   children: ReactNode;
+// };
+
+type GoalProps = PropsWithChildren<{ title: string }>;
+
+export default function Goal({ title, children }: GoalProps) {
   return (
     <article>
       <div>
         <h2>{title}</h2>
-        <p>{description}</p>
+        {children}
       </div>
       <button>Delete</button>
     </article>
