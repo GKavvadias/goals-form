@@ -10,13 +10,21 @@ type GoalListProps = {
 
 export default function GoalList({ goals, onDelete }: GoalListProps) {
   if (goals.length === 0) {
-    return <InfoBox mode="hint">You have set no goals yet!</InfoBox>;
+    return (
+      <InfoBox mode="hint">
+        You have set no goals yet!
+      </InfoBox>
+    );
   }
 
   let warningBox: ReactNode;
 
   if (goals.length >= 4) {
-    warningBox = <InfoBox mode="warning">You have set too many goals...</InfoBox>;
+    warningBox = (
+      <InfoBox mode="warning" severity="medium">
+        You have set too many goals...
+      </InfoBox>
+    );
   }
 
   return (
